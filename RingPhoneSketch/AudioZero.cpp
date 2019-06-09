@@ -21,6 +21,8 @@
 bool __StartFlag;
 volatile uint32_t __SampleIndex;
 uint32_t __HeadIndex;
+uint32_t __StopAtIndex;
+File __CurrentFile;
 uint32_t __NumberOfSamples; // Number of samples to read in block
 uint8_t *__WavSamples;
 
@@ -29,8 +31,9 @@ int __Volume;
 void AudioZeroClass::begin(uint32_t sampleRate) {
 	
 	__StartFlag = false;
-	__SampleIndex = 0;					//in order to start from the beginning
-	__NumberOfSamples = 1024;	//samples to read to have a buffer
+	__NumberOfSamples = 1024; //samples to read to have a buffer
+	__SampleIndex = __StopAtIndex =__NumberOfSamples - 1;
+        __HeadIndex = 0;
 	
 	/*Allocate the buffer where the samples are stored*/
 	__WavSamples = (uint8_t *) malloc(__NumberOfSamples * sizeof(uint8_t));
@@ -38,12 +41,14 @@ void AudioZeroClass::begin(uint32_t sampleRate) {
 	/*Modules configuration */
   	dacConfigure();
 	tcConfigure(sampleRate);
+        tcStartCounter();
 }
 
 void AudioZeroClass::end() {
 	tcDisable();
 	tcReset();
-	analogWrite(A0, 0);	
+        free(__WavSamples);
+	analogWrite(A0, 128);
 }
 
 /*void AudioZeroClass::prepare(int volume){
@@ -51,32 +56,59 @@ void AudioZeroClass::end() {
 }*/
 
 void AudioZeroClass::play(File myFile) {
-while (myFile.available()) {
-	 if (!__StartFlag)
-    {
-      myFile.read(__WavSamples, __NumberOfSamples);
-      __HeadIndex = 0;
-	  
-	  /*once the buffer is filled for the first time the counter can be started*/
-      tcStartCounter();
-      __StartFlag = true;
-    }
-    else
-    {
-      uint32_t current__SampleIndex = __SampleIndex;
-      
-      if (current__SampleIndex > __HeadIndex) {
-        myFile.read(&__WavSamples[__HeadIndex], current__SampleIndex - __HeadIndex);
-        __HeadIndex = current__SampleIndex;        
-      }
-      else if (current__SampleIndex < __HeadIndex) {
-        myFile.read(&__WavSamples[__HeadIndex], __NumberOfSamples-1 - __HeadIndex);
-        myFile.read(__WavSamples, current__SampleIndex);
-        __HeadIndex = current__SampleIndex;
-      }
-    }
+  __CurrentFile = myFile;
+  update();
+   // Update again, in case there was only little room at the end of the
+   // buffer, so the second update wraps around.
+  update();
+  __StopAtIndex = -1;
 }
-	myFile.close();
+
+void AudioZeroClass::stop() {
+  noInterrupts();
+  __StopAtIndex = __SampleIndex;
+  interrupts();
+  __CurrentFile.close();
+}
+
+bool AudioZeroClass::isPlaying() {
+  // File is set and still open
+  return (bool)__CurrentFile;
+}
+
+
+void AudioZeroClass::update() {
+  if (!isPlaying())
+    return;
+
+  // Last sample read by the ISR
+  uint32_t current__SampleIndex = __SampleIndex;
+
+  // If the ISR has wrapped around the end of the buffer, read until the
+  // end. Otherwise, read up to the ISR pointer
+  size_t to_read;
+  if (current__SampleIndex <= __HeadIndex)
+    to_read = __NumberOfSamples - __HeadIndex;
+  else
+    to_read = current__SampleIndex - __HeadIndex;
+
+  // Note that this always leaves one sample "empty" between head and
+  // sample index, to prevent ambiguity whether equal indices mean an
+  // empty or full buffer
+
+  // Do the actual read
+  __HeadIndex += __CurrentFile.read(&__WavSamples[__HeadIndex], to_read);
+
+  if (__HeadIndex == __NumberOfSamples)
+    __HeadIndex = 0;
+
+  if (__CurrentFile.available() == 0) {
+    if (__HeadIndex == 0)
+      __StopAtIndex = __NumberOfSamples;
+    else
+      __StopAtIndex = __HeadIndex - 1;
+    __CurrentFile.close();
+  }
 }
 
 
@@ -162,20 +194,20 @@ AudioZeroClass AudioZero;
 extern "C" {
 #endif
 
-void Audio_Handler (void)
-{
-  if (__SampleIndex < __NumberOfSamples - 1)
-  {
-    analogWrite(A0, __WavSamples[__SampleIndex++]);
-
-    // Clear the interrupt
-    TC5->COUNT16.INTFLAG.bit.MC0 = 1;
+void Audio_Handler (void) {
+  // Write next sample
+  if (__SampleIndex != __StopAtIndex) {
+      __SampleIndex++;
+      // If it was the last sample in the buffer, start again
+      if (__SampleIndex == __NumberOfSamples) {
+          __SampleIndex = 0;
+      }
+      analogWrite(A0, __WavSamples[__SampleIndex]);
+  } else {
+      analogWrite(A0, 128);
   }
-  else
-  {
-    __SampleIndex = 0;
-    TC5->COUNT16.INTFLAG.bit.MC0 = 1;
-	}
+  // Clear interrupt
+  TC5->COUNT16.INTFLAG.bit.MC0 = 1;
 }
 
 void TC5_Handler (void) __attribute__ ((weak, alias("Audio_Handler")));

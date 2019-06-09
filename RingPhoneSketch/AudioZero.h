@@ -29,6 +29,9 @@ public:
 	void begin(uint32_t sampleRate);
 //	void prepare(int volume); //not implemented yet
 	void play(File myFile) ;
+	bool isPlaying();
+	void stop();
+	void update();
 	void end();
 
 private:
