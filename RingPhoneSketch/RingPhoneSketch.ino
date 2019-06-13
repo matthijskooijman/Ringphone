@@ -7,14 +7,51 @@ const uint8_t PIN_RING_B = 3;
 const uint8_t PIN_CURRENT = A1;
 const uint8_t PIN_SOUND = A0;
 const uint8_t PIN_TRIGGER = 8;
+const uint8_t PIN_MOTION = 9;
+
+// Value for PIN_MOTION when active
+const bool MOTION_ACTIVE = HIGH;
+
+// Frequency of the ring signal, determines the ring sound
 const uint8_t RING_FREQ = 50; // Hz
-const uint16_t RING_DELAY = 1000 / RING_FREQ; // ms
+
+// Minimum ADC reading to be off-hook when idle (not ringing, line at
+// half DC voltage with or without audio)
+const uint16_t IDLE_HOOK_THRESHOLD = 50;
+// Minimum ADC reading to be off-hook when ringing
+const uint16_t RING_HOOK_THRESHOLD = 150;
+
+// Ringing is RING, PAUSE, RING, IDLE, repeat
+const uint16_t RING_TIME = 500;
+const uint16_t RING_PAUSE_TIME = 200;
+const uint16_t RING_IDLE_TIME = 1500;
+// Time to pause between (answered or unanswered) rings
+const uint32_t COOLDOWN_TIME = 1000 * 300;
+
+enum class HookStatus : bool {
+  ON_HOOK,
+  OFF_HOOK,
+};
+
+// Aliases in global scope to prevent having to write HookStatus::
+// everywhere
+auto ON_HOOK = HookStatus::ON_HOOK;
+auto OFF_HOOK = HookStatus::OFF_HOOK;
 
 // Helper for scope debugging
 void trigger() {
   pinMode(PIN_TRIGGER, OUTPUT);
   digitalWrite(PIN_TRIGGER, LOW);
   digitalWrite(PIN_TRIGGER, HIGH);
+}
+
+HookStatus check_off_hook(uint16_t threshold) {
+  uint16_t current = analogRead(PIN_CURRENT);
+  // Current above threshold means off-hook
+  bool off_hook = (current > threshold);
+
+  digitalWrite(LED_BUILTIN, off_hook);
+  return off_hook ? OFF_HOOK : ON_HOOK;
 }
 
 void setup() {
@@ -25,7 +62,7 @@ void setup() {
   pinMode(PIN_RING_A, OUTPUT);
   pinMode(PIN_RING_B, OUTPUT);
   pinMode(PIN_SOUND, OUTPUT);
- 
+
   if (!SD.begin(SS1)) {
     Serial.println(" failed!");
     while(true);
@@ -42,73 +79,107 @@ void setup() {
   delay(200);
 }
 
-void sound(uint16_t ms) {
+void sound() {
   Serial.println("SOUND");
-  uint16_t current = analogRead(PIN_CURRENT);
-  Serial.println(current);
-  if (current > 50) {
-    digitalWrite(LED_BUILTIN, HIGH);
-  } else {
-    digitalWrite(LED_BUILTIN, LOW);
+
+  if (play_file("test.raw") == ON_HOOK)
     return;
+
+  Serial.println("END");
+  // Sound played to completion, play end sound
+  if (play_file("end.raw") == ON_HOOK)
+    return;
+
+  Serial.println("WAIT_FOR_HOOK");
+  // Still off-hook, wait for on-hook before starting cooldown
+  while (check_off_hook(IDLE_HOOK_THRESHOLD) == OFF_HOOK) /* wait */;
+}
+
+HookStatus play_file(const char* filename) {
+  Serial.println("PLAY");
+
+  File f = SD.open(filename);
+  if (!f) {
+    Serial.print("error opening file: ");
+    Serial.println(filename);
+    return OFF_HOOK;
   }
 
-  File myFile = SD.open("test.raw");
-  if (!myFile) {
-    // if the file didn't open, print an error and stop
-    Serial.println("error opening file");
-    while (true);
-  }
+  AudioZero.play(f);
 
-  Serial.println("Playing");
-
-  AudioZero.play(myFile);
   while (AudioZero.isPlaying()) {
     AudioZero.update();
 
-    uint16_t current = analogRead(PIN_CURRENT);
-    Serial.println(current);
-    if (current > 50) {
-      digitalWrite(LED_BUILTIN, HIGH);
-    } else {
-      digitalWrite(LED_BUILTIN, LOW);
+    if (check_off_hook(IDLE_HOOK_THRESHOLD) == ON_HOOK) {
       AudioZero.stop();
+      return ON_HOOK;
     }
   }
+  return OFF_HOOK;
 }
 
-void ring(uint16_t ms) {
-  Serial.println("RING");
-  uint16_t current = analogRead(PIN_CURRENT);
-  Serial.println(current);
-  if (current > 50) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    return;
-  } else {
-    digitalWrite(LED_BUILTIN, LOW);
+HookStatus idle(uint16_t ms) {
+  Serial.println("IDLE");
+  digitalWrite(PIN_RING_A, LOW);
+  digitalWrite(PIN_RING_B, LOW);
+  unsigned long start = millis();
+  delay(1);
+  while (millis() - start < ms) {
+    if (check_off_hook(IDLE_HOOK_THRESHOLD) == OFF_HOOK)
+      return OFF_HOOK;
   }
+  return ON_HOOK;
+}
+
+HookStatus ring_once(uint16_t ms) {
+  Serial.println("RING");
+  const uint16_t PERIOD = 1000 / RING_FREQ;
   unsigned long start = millis();
   while (millis() - start < ms) {
     digitalWrite(PIN_RING_A, HIGH);
     digitalWrite(PIN_RING_B, LOW);
-    uint16_t current = analogRead(PIN_CURRENT);
-    Serial.println(current);
-    if (current > 150) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      break;
-    } else {
-      digitalWrite(LED_BUILTIN, LOW);
+    delay(1);
+    // Check for off_hook when B is (just) low, since then the off-hook
+    // current is positive and highest.
+    if (check_off_hook(RING_HOOK_THRESHOLD) == OFF_HOOK) {
+      digitalWrite(PIN_RING_A, LOW);
+      return OFF_HOOK;
     }
-    delay(RING_DELAY);
+
+    delay(PERIOD / 2 - 1);
     digitalWrite(PIN_RING_A, LOW);
     digitalWrite(PIN_RING_B, HIGH);
-    delay(RING_DELAY);
+    delay(PERIOD / 2);
   }
-  digitalWrite(PIN_RING_A, LOW);
   digitalWrite(PIN_RING_B, LOW);
+  // Allow current to stabilize
+  delay(10);
+  return ON_HOOK;
+}
+
+HookStatus ring(uint8_t times) {
+  Serial.println("RINGING");
+
+  for (uint8_t i = 0; i < times; ++i) {
+    if (ring_once(RING_TIME) == OFF_HOOK)
+      return OFF_HOOK;
+    if (idle(RING_PAUSE_TIME) == OFF_HOOK)
+      return OFF_HOOK;
+    if (ring_once(RING_TIME) == OFF_HOOK)
+      return OFF_HOOK;
+    if (idle(RING_IDLE_TIME) == OFF_HOOK)
+      return OFF_HOOK;
+  }
+  return ON_HOOK;
 }
 
 void loop() {
-  ring(2000);
-  sound(2000);
+  Serial.println("WAIT_FOR_MOTION");
+  while (digitalRead(PIN_MOTION) != MOTION_ACTIVE) /* wait */;
+
+  if (ring(2) == OFF_HOOK)
+    sound();
+
+  Serial.println("COOLDOWN");
+  delay(COOLDOWN_TIME);
 }
