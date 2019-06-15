@@ -17,7 +17,7 @@ const uint8_t RING_FREQ = 50; // Hz
 
 // Minimum ADC reading to be off-hook when idle (not ringing, line at
 // half DC voltage with or without audio)
-const uint16_t IDLE_HOOK_THRESHOLD = 50;
+const uint16_t IDLE_HOOK_THRESHOLD = 75;
 // Minimum ADC reading to be off-hook when ringing
 const uint16_t RING_HOOK_THRESHOLD = 150;
 
@@ -123,7 +123,6 @@ HookStatus idle(uint16_t ms) {
   digitalWrite(PIN_RING_A, LOW);
   digitalWrite(PIN_RING_B, LOW);
   unsigned long start = millis();
-  delay(1);
   while (millis() - start < ms) {
     if (check_off_hook(IDLE_HOOK_THRESHOLD) == OFF_HOOK)
       return OFF_HOOK;
@@ -153,7 +152,7 @@ HookStatus ring_once(uint16_t ms) {
   }
   digitalWrite(PIN_RING_B, LOW);
   // Allow current to stabilize
-  delay(10);
+  delay(30);
   return ON_HOOK;
 }
 
