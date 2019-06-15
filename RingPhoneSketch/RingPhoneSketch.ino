@@ -60,6 +60,7 @@ void setup() {
   pinMode(PIN_RING_A, OUTPUT);
   pinMode(PIN_RING_B, OUTPUT);
   pinMode(PIN_SOUND, OUTPUT);
+  pinMode(PIN_MOTION, INPUT);
   pinMode(PIN_TRIGGER, OUTPUT);
 
   if (!SD.begin(SS1)) {
