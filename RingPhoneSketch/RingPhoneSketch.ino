@@ -40,9 +40,7 @@ auto OFF_HOOK = HookStatus::OFF_HOOK;
 
 // Helper for scope debugging
 void trigger() {
-  pinMode(PIN_TRIGGER, OUTPUT);
-  digitalWrite(PIN_TRIGGER, LOW);
-  digitalWrite(PIN_TRIGGER, HIGH);
+  digitalWrite(PIN_TRIGGER, !digitalRead(PIN_TRIGGER));
 }
 
 HookStatus check_off_hook(uint16_t threshold) {
@@ -62,6 +60,7 @@ void setup() {
   pinMode(PIN_RING_A, OUTPUT);
   pinMode(PIN_RING_B, OUTPUT);
   pinMode(PIN_SOUND, OUTPUT);
+  pinMode(PIN_TRIGGER, OUTPUT);
 
   if (!SD.begin(SS1)) {
     Serial.println(" failed!");
@@ -71,7 +70,6 @@ void setup() {
 
   // 44100kHz stereo => 88200 sample rate
   AudioZero.begin(44100);
-  trigger();
   digitalWrite(PIN_RING_A, LOW);
   digitalWrite(PIN_RING_B, LOW);
   analogWrite(PIN_SOUND, 128);
