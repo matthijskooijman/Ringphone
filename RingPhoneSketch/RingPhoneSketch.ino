@@ -6,6 +6,7 @@ const uint8_t PIN_RING_A = 2;
 const uint8_t PIN_RING_B = 3;
 const uint8_t PIN_CURRENT = A1;
 const uint8_t PIN_SOUND = A0;
+const uint8_t PIN_RANDOM_SEED = A2;
 const uint8_t PIN_TRIGGER = 8;
 const uint8_t PIN_MOTION = 9;
 
@@ -38,6 +39,8 @@ enum class HookStatus : bool {
 auto ON_HOOK = HookStatus::ON_HOOK;
 auto OFF_HOOK = HookStatus::OFF_HOOK;
 
+size_t numberOfFiles;
+
 // Helper for scope debugging
 void trigger() {
   digitalWrite(PIN_TRIGGER, !digitalRead(PIN_TRIGGER));
@@ -52,22 +55,56 @@ HookStatus check_off_hook(uint16_t threshold) {
   return off_hook ? OFF_HOOK : ON_HOOK;
 }
 
+bool is_sound_file(File entry) {
+  String name = entry.name();
+  return !entry.isDirectory() && (name.endsWith(".RAW") || name.endsWith(".SOU"));
+}
+
+size_t countFiles(const char *dirname) {
+  File d = SD.open(dirname);
+  if (!d.isDirectory())
+    return 0;
+
+  size_t count = 0;
+  while (true) {
+    File entry = d.openNextFile();
+    if (!entry) // Done
+      return count;
+
+    if (is_sound_file(entry))
+      ++count;
+    entry.close();
+  }
+}
+
 void setup() {
   Serial.begin(115200);
   //while (!Serial);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(PIN_CURRENT, INPUT);
+  pinMode(PIN_RANDOM_SEED, INPUT);
   pinMode(PIN_RING_A, OUTPUT);
   pinMode(PIN_RING_B, OUTPUT);
   pinMode(PIN_SOUND, OUTPUT);
   pinMode(PIN_MOTION, INPUT);
   pinMode(PIN_TRIGGER, OUTPUT);
 
+  randomSeed(analogRead(PIN_RANDOM_SEED));
+
+  Serial.print("Initializing SD card...");
   if (!SD.begin(SS1)) {
     Serial.println(" failed!");
     while(true);
   }
+  numberOfFiles = countFiles("/");
+  if (numberOfFiles == 0) {
+    Serial.println(" failed!");
+    Serial.println("No sound files found.");
+    while(true);
+  }
   Serial.println(" done.");
+  Serial.print(numberOfFiles);
+  Serial.println(" audio files found.");
 
   // 44100kHz stereo => 88200 sample rate
   AudioZero.begin(44100);
@@ -78,15 +115,43 @@ void setup() {
   delay(200);
 }
 
+File select_sound_file(const char *dirname) {
+  size_t to_play = random(numberOfFiles);
+
+  File d = SD.open(dirname);
+  if (!d.isDirectory())
+    return File();
+
+  File entry;
+  size_t i = 0;
+  while (i <= to_play) {
+    entry.close();
+    entry = d.openNextFile();
+    if (!entry) {
+      // Should never happen, but just in case
+      Serial.println("File disappeared?");
+      break;
+    }
+
+    if (!is_sound_file(entry))
+      continue;
+
+    ++i;
+  }
+  d.close();
+  return entry;
+}
+
 void sound() {
   Serial.println("SOUND");
 
-  if (play_file("test.raw") == ON_HOOK)
+  File f = select_sound_file("/");
+  if (play_file(f) == ON_HOOK)
     return;
 
   Serial.println("END");
   // Sound played to completion, play end sound
-  if (play_file("end.raw") == ON_HOOK)
+  if (play_file("special/end.raw") == ON_HOOK)
     return;
 
   Serial.println("WAIT_FOR_HOOK");
@@ -95,14 +160,18 @@ void sound() {
 }
 
 HookStatus play_file(const char* filename) {
-  Serial.println("PLAY");
-
   File f = SD.open(filename);
   if (!f) {
     Serial.print("error opening file: ");
     Serial.println(filename);
     return OFF_HOOK;
   }
+  return play_file(f);
+}
+
+HookStatus play_file(File f) {
+  Serial.println("PLAY");
+  Serial.println(f.name());
 
   AudioZero.play(f);
 
