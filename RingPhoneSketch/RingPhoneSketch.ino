@@ -14,7 +14,7 @@ const uint8_t PIN_MOTION = 9;
 const bool MOTION_ACTIVE = HIGH;
 
 // Frequency of the ring signal, determines the ring sound
-const uint8_t RING_FREQ = 50; // Hz
+const uint8_t RING_FREQ = 25; // Hz
 
 // Minimum ADC reading to be off-hook when idle (not ringing, line at
 // half DC voltage with or without audio)
