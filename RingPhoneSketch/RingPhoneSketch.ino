@@ -280,11 +280,13 @@ HookStatus ring(uint8_t times) {
 
 void loop() {
   Serial.println("WAIT_FOR_MOTION");
-  while (digitalRead(PIN_MOTION) != MOTION_ACTIVE) /* wait */;
+  while (digitalRead(PIN_MOTION) != MOTION_ACTIVE && check_off_hook(IDLE_HOOK_THRESHOLD) == ON_HOOK) /* wait */;
 
-  if (ring(2) == OFF_HOOK)
+  if (check_off_hook(IDLE_HOOK_THRESHOLD) == OFF_HOOK || ring(2) == OFF_HOOK)
     sound();
 
   Serial.println("COOLDOWN");
-  delay(COOLDOWN_TIME);
+
+  unsigned long start = millis();
+  while (millis() - start < COOLDOWN_TIME && check_off_hook(IDLE_HOOK_THRESHOLD) == ON_HOOK) /* wait */;
 }
