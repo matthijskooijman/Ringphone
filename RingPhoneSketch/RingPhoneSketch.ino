@@ -39,7 +39,12 @@ enum class HookStatus : bool {
 auto ON_HOOK = HookStatus::ON_HOOK;
 auto OFF_HOOK = HookStatus::OFF_HOOK;
 
+// Number of audio files on the sd card
 size_t numberOfFiles;
+// List of indices of recent files played
+size_t recentFiles[5];
+// How many indices are valid in recentFiles
+size_t numberRecent = 0;
 
 // Helper for scope debugging
 void trigger() {
@@ -115,8 +120,41 @@ void setup() {
   delay(200);
 }
 
+bool is_recent_file(size_t index_to_check) {
+  for (size_t i = 0; i < numberRecent; i++) {
+    if (index_to_check == recentFiles[i])
+      return true;
+  }
+  return false;
+}
+
+#define lengthof(x) (sizeof(x)/sizeof(*x))
+void add_recent_file(size_t index) {
+  if (numberRecent < lengthof(recentFiles) && numberRecent < (numberOfFiles + 1) / 2) {
+    // If there is room in the recentFiles array, just add the new
+    // index. But never remember more than half of the total number of
+    // files, since then things are not really random anymore
+    recentFiles[numberRecent++] = index;
+  } else if (numberRecent) {
+    // If the array is full, move all existing indices backwards and
+    // append the new one.
+    for (size_t i = 0; i + 1 < numberRecent; i++)
+      recentFiles[i] = recentFiles[i+1];
+    recentFiles[numberRecent-1] = index;
+  }
+}
+
 File select_sound_file(const char *dirname) {
-  size_t to_play = random(numberOfFiles);
+  // Play the nth-file skipping recent files
+  size_t rnd = random(numberOfFiles - numberRecent);
+  // File to play, including recent files
+  size_t to_play = -1;
+  while(rnd != (size_t)-1) {
+    to_play++;
+    if (!is_recent_file(to_play))
+      rnd--;
+  }
+  add_recent_file(to_play);
 
   File d = SD.open(dirname);
   if (!d.isDirectory())
