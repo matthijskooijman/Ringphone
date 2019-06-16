@@ -56,6 +56,14 @@ HookStatus check_off_hook(uint16_t threshold) {
   // Current above threshold means off-hook
   bool off_hook = (current > threshold);
 
+  if (false) {
+    Serial.print(current);
+    Serial.print(" > ");
+    Serial.print(threshold);
+    Serial.print("? ");
+    Serial.println(off_hook ? "yes, OFF_HOOK" : "no, ON_HOOK");
+  }
+
   digitalWrite(LED_BUILTIN, off_hook);
   return off_hook ? OFF_HOOK : ON_HOOK;
 }
