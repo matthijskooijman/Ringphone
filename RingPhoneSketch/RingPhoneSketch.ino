@@ -2,13 +2,14 @@
 #include <SPI.h>
 #include "AudioZero.h"
 
-const uint8_t PIN_RING_A = 2;
-const uint8_t PIN_RING_B = 3;
+const uint8_t PIN_RING_A = 0;
+const uint8_t PIN_RING_B = 5;
 const uint8_t PIN_CURRENT = A1;
 const uint8_t PIN_SOUND = A0;
 const uint8_t PIN_RANDOM_SEED = A2;
 const uint8_t PIN_TRIGGER = 8;
-const uint8_t PIN_MOTION = 9;
+const uint8_t PIN_MOTION = 10;
+const uint8_t PIN_SD_SS = 4;
 
 // Value for PIN_MOTION when active
 const bool MOTION_ACTIVE = HIGH;
@@ -20,14 +21,14 @@ const uint8_t RING_FREQ = 25; // Hz
 // half DC voltage with or without audio)
 const uint16_t IDLE_HOOK_THRESHOLD = 75;
 // Minimum ADC reading to be off-hook when ringing
-const uint16_t RING_HOOK_THRESHOLD = 150;
+const uint16_t RING_HOOK_THRESHOLD = 200;
 
 // Ringing is RING, PAUSE, RING, IDLE, repeat
 const uint16_t RING_TIME = 500;
 const uint16_t RING_PAUSE_TIME = 200;
 const uint16_t RING_IDLE_TIME = 1500;
 // Time to pause between (answered or unanswered) rings
-const uint32_t COOLDOWN_TIME = 1000 * 300;
+const uint32_t COOLDOWN_TIME = 1000 * 10;
 
 enum class HookStatus : bool {
   ON_HOOK,
@@ -56,7 +57,10 @@ HookStatus check_off_hook(uint16_t threshold) {
   // Current above threshold means off-hook
   bool off_hook = (current > threshold);
 
-  if (false) {
+  static uint16_t prev_current = 0;
+  int32_t diff = abs((int32_t)current - (int32_t)prev_current);
+  if (true && diff > current / 8 && diff > 5) {
+    prev_current = current;
     Serial.print(current);
     Serial.print(" > ");
     Serial.print(threshold);
@@ -99,13 +103,13 @@ void setup() {
   pinMode(PIN_RING_A, OUTPUT);
   pinMode(PIN_RING_B, OUTPUT);
   pinMode(PIN_SOUND, OUTPUT);
-  pinMode(PIN_MOTION, INPUT);
+  pinMode(PIN_MOTION, INPUT_PULLUP); // TODO: No pullup
   pinMode(PIN_TRIGGER, OUTPUT);
 
   randomSeed(analogRead(PIN_RANDOM_SEED));
 
   Serial.print("Initializing SD card...");
-  if (!SD.begin(SS1)) {
+  if (!SD.begin(PIN_SD_SS)) {
     Serial.println(" failed!");
     while(true);
   }
@@ -287,11 +291,14 @@ HookStatus ring(uint8_t times) {
 }
 
 void loop() {
-  Serial.println("WAIT_FOR_MOTION");
+  Serial.println("WAIT_FOR_MOTION**********************************************************************");
   while (digitalRead(PIN_MOTION) != MOTION_ACTIVE && check_off_hook(IDLE_HOOK_THRESHOLD) == ON_HOOK) /* wait */;
 
   if (check_off_hook(IDLE_HOOK_THRESHOLD) == OFF_HOOK || ring(2) == OFF_HOOK)
     sound();
+
+  // Allow current to stabilize
+  delay(300);
 
   Serial.println("COOLDOWN");
 
