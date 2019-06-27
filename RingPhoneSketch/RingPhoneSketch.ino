@@ -10,6 +10,8 @@ const uint8_t PIN_RANDOM_SEED = A2;
 const uint8_t PIN_TRIGGER = A3;
 const uint8_t PIN_MOTION = 5;
 const uint8_t PIN_SD_SS = 4;
+const uint8_t PIN_LED_RED = LED_BUILTIN;
+const uint8_t PIN_LED_GREEN = 8;
 
 // Value for PIN_MOTION when active
 const bool MOTION_ACTIVE = HIGH;
@@ -68,7 +70,7 @@ HookStatus check_off_hook(uint16_t threshold) {
     Serial.println(off_hook ? "yes, OFF_HOOK" : "no, ON_HOOK");
   }
 
-  digitalWrite(LED_BUILTIN, off_hook);
+  digitalWrite(PIN_LED_GREEN, off_hook);
   return off_hook ? OFF_HOOK : ON_HOOK;
 }
 
@@ -97,7 +99,8 @@ size_t countFiles(const char *dirname) {
 void setup() {
   Serial.begin(115200);
   //while (!Serial);
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(PIN_LED_RED, OUTPUT);
+  pinMode(PIN_LED_GREEN, OUTPUT);
   pinMode(PIN_CURRENT, INPUT);
   pinMode(PIN_RANDOM_SEED, INPUT);
   pinMode(PIN_RING_A, OUTPUT);
@@ -111,13 +114,20 @@ void setup() {
   Serial.print("Initializing SD card...");
   if (!SD.begin(PIN_SD_SS)) {
     Serial.println(" failed!");
-    while(true);
+    while(true) {
+      digitalWrite(PIN_LED_RED, !digitalRead(PIN_LED_RED));
+      delay(250);
+    }
   }
   numberOfFiles = countFiles("/");
   if (numberOfFiles == 0) {
     Serial.println(" failed!");
     Serial.println("No sound files found.");
-    while(true);
+
+    while(true) {
+      digitalWrite(PIN_LED_RED, !digitalRead(PIN_LED_RED));
+      delay(500);
+    }
   }
   Serial.println(" done.");
   Serial.print(numberOfFiles);
