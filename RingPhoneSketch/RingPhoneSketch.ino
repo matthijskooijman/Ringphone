@@ -2,13 +2,13 @@
 #include <SPI.h>
 #include "AudioZero.h"
 
-const uint8_t PIN_RING_A = 0;
-const uint8_t PIN_RING_B = 5;
+const uint8_t PIN_RING_A = 9;
+const uint8_t PIN_RING_B = 6;
 const uint8_t PIN_CURRENT = A1;
 const uint8_t PIN_SOUND = A0;
 const uint8_t PIN_RANDOM_SEED = A2;
-const uint8_t PIN_TRIGGER = 8;
-const uint8_t PIN_MOTION = 10;
+const uint8_t PIN_TRIGGER = A3;
+const uint8_t PIN_MOTION = 5;
 const uint8_t PIN_SD_SS = 4;
 
 // Value for PIN_MOTION when active
