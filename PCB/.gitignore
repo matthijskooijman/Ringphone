@@ -2,4 +2,5 @@
 *.net
 *.cmp
 *.bak
+*.kicad_prl
 fp-info-cache
