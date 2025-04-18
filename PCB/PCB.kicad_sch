@@ -2585,7 +2585,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:CP"
+		(symbol "Device:C_Polarized"
 			(pin_numbers
 				(hide yes)
 			)
@@ -2604,7 +2604,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "Device_CP"
+			(property "Value" "C_Polarized"
 				(at 0.635 -2.54 0)
 				(effects
 					(font
@@ -2622,7 +2622,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2631,7 +2631,16 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Polarized capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2649,13 +2658,13 @@
 					(hide yes)
 				)
 			)
-			(symbol "CP_0_1"
+			(symbol "C_Polarized_0_1"
 				(rectangle
 					(start -2.286 0.508)
 					(end 2.286 1.016)
 					(stroke
 						(width 0)
-						(type solid)
+						(type default)
 					)
 					(fill
 						(type none)
@@ -2667,7 +2676,7 @@
 					)
 					(stroke
 						(width 0)
-						(type solid)
+						(type default)
 					)
 					(fill
 						(type none)
@@ -2679,7 +2688,7 @@
 					)
 					(stroke
 						(width 0)
-						(type solid)
+						(type default)
 					)
 					(fill
 						(type none)
@@ -2690,14 +2699,14 @@
 					(end -2.286 -1.016)
 					(stroke
 						(width 0)
-						(type solid)
+						(type default)
 					)
 					(fill
 						(type outline)
 					)
 				)
 			)
-			(symbol "CP_1_1"
+			(symbol "C_Polarized_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -2861,7 +2870,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R_POT"
+		(symbol "Device:R_Potentiometer"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -2877,7 +2886,7 @@
 					)
 				)
 			)
-			(property "Value" "Device_R_POT"
+			(property "Value" "R_Potentiometer"
 				(at -2.54 0 90)
 				(effects
 					(font
@@ -2894,7 +2903,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2903,7 +2912,16 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Potentiometer"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "resistor variable"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2921,13 +2939,13 @@
 					(hide yes)
 				)
 			)
-			(symbol "R_POT_0_1"
+			(symbol "R_Potentiometer_0_1"
 				(rectangle
 					(start 1.016 2.54)
 					(end -1.016 -2.54)
 					(stroke
 						(width 0.254)
-						(type solid)
+						(type default)
 					)
 					(fill
 						(type none)
@@ -2939,7 +2957,7 @@
 					)
 					(stroke
 						(width 0)
-						(type solid)
+						(type default)
 					)
 					(fill
 						(type outline)
@@ -2951,14 +2969,14 @@
 					)
 					(stroke
 						(width 0)
-						(type solid)
+						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
 			)
-			(symbol "R_POT_1_1"
+			(symbol "R_Potentiometer_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -8676,7 +8694,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:CP")
+		(lib_id "Device:C_Polarized")
 		(at 166.37 54.61 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8720,12 +8738,13 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Polarized capacitor"
 			(at 166.37 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9538,7 +9557,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:CP")
+		(lib_id "Device:C_Polarized")
 		(at 114.3 36.83 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9582,12 +9601,13 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Polarized capacitor"
 			(at 114.3 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9606,7 +9626,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_POT")
+		(lib_id "Device:R_Potentiometer")
 		(at 135.89 31.75 270)
 		(mirror x)
 		(unit 1)
@@ -9649,12 +9669,13 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Potentiometer"
 			(at 135.89 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12195,7 +12216,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:CP")
+		(lib_id "Device:C_Polarized")
 		(at 21.59 177.8 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12239,12 +12260,13 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Polarized capacitor"
 			(at 21.59 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12263,7 +12285,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:CP")
+		(lib_id "Device:C_Polarized")
 		(at 68.58 177.8 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12307,12 +12329,13 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Polarized capacitor"
 			(at 68.58 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12331,7 +12354,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:CP")
+		(lib_id "Device:C_Polarized")
 		(at 121.92 179.07 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12375,12 +12398,13 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Polarized capacitor"
 			(at 121.92 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
