@@ -168,6 +168,9 @@ void setup() {
   analogWrite(PIN_SOUND, 128);
   // Allow ring cap to charge. R=2x470Ω, C=33μF, so RC~33. Allow > 4xRC for a full charge.
   delay(200);
+
+  // It seems the bootloader leaves the red led on? Switch it off here as a sign that boot is completed succesfully.
+  digitalWrite(PIN_LED_RED, LOW);
 }
 
 bool is_recent_file(size_t index_to_check) {
