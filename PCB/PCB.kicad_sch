@@ -10226,7 +10226,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_RJ:RJ12_Amphenol_54601"
+		(property "Footprint" "Connector_RJ:RJ12_Amphenol_54601-x06_Horizontal"
 			(at 245.11 52.705 90)
 			(effects
 				(font
@@ -10244,7 +10244,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RJ connector, 6P6C (6 positions 6 connected), RJ12/RJ18/RJ25"
+		(property "Description" ""
 			(at 245.11 52.07 0)
 			(effects
 				(font
@@ -12885,7 +12885,7 @@
 		(lib_id "Graphic:Logo_Open_Hardware_Small")
 		(at 278.13 173.99 0)
 		(unit 1)
-		(exclude_from_sim no)
+		(exclude_from_sim yes)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
