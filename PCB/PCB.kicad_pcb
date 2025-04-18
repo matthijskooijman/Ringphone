@@ -1561,7 +1561,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3126,7 +3126,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -3347,7 +3347,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -3569,7 +3569,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3822,7 +3822,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RJ connector, 6P6C (6 positions 6 connected), RJ12/RJ18/RJ25"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -4188,7 +4188,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -4452,7 +4452,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -4713,7 +4713,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -4974,7 +4974,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -5235,7 +5235,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -5496,7 +5496,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -5757,7 +5757,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -6018,7 +6018,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -6279,7 +6279,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -7286,7 +7286,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -11716,7 +11716,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -11877,7 +11877,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -12038,7 +12038,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -12200,7 +12200,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -12361,7 +12361,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -12522,7 +12522,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -12683,7 +12683,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -12844,7 +12844,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -13005,7 +13005,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -13166,7 +13166,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -13287,14 +13287,14 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "Package_DIP:DIP-16_W7.62mm_Socket_LongPads"
+	(footprint "Package_DIP:DIP-16_W7.62mm"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-00005d0ac9e3")
 		(at 124.46 160.02 -90)
-		(descr "16-lead though-hole mounted DIP package, row spacing 7.62 mm (300 mils), Socket, LongPads")
-		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil Socket LongPads")
+		(descr "16-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
+		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "U2"
-			(at 10.16 10.16 180)
+			(at 3.81 -2.33 270)
 			(layer "F.SilkS")
 			(uuid "e3999d37-0113-4239-aa53-3d8fdfe0efe1")
 			(effects
@@ -13305,8 +13305,8 @@
 			)
 		)
 		(property "Value" "L293D"
-			(at 3.81 13.97 180)
-			(layer "F.SilkS")
+			(at 3.81 20.11 270)
+			(layer "F.Fab")
 			(uuid "e5b01b4c-6174-4a8e-9944-96de6396b846")
 			(effects
 				(font
@@ -13327,7 +13327,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Quadruple Half-H Drivers"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -13345,94 +13345,54 @@
 		(sheetfile "PCB.kicad_sch")
 		(attr through_hole)
 		(fp_line
-			(start -1.44 19.17)
-			(end 9.06 19.17)
+			(start 1.16 19.11)
+			(end 6.46 19.11)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "4ee07202-d7d1-4501-bcf1-cf034e9dbe42")
+			(uuid "68b580f9-7f07-4cf8-b38b-73891e673ec7")
 		)
 		(fp_line
-			(start 9.06 19.17)
-			(end 9.06 -1.39)
+			(start 6.46 19.11)
+			(end 6.46 -1.33)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "c68e88d4-47bf-4450-b50b-697b6c94580c")
+			(uuid "8a1ba697-7196-468e-a872-db104afb257c")
 		)
 		(fp_line
-			(start 1.56 19.11)
-			(end 6.06 19.11)
+			(start 1.16 -1.33)
+			(end 1.16 19.11)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "3d58a656-fb0a-4bd1-944e-f19d82884b51")
-		)
-		(fp_line
-			(start 6.06 19.11)
-			(end 6.06 -1.33)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "c3747d87-9cff-47f4-85f4-1528c13292f5")
-		)
-		(fp_line
-			(start 1.56 -1.33)
-			(end 1.56 19.11)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "a944e365-2809-4302-a2f6-208040b3c08e")
+			(uuid "8f266451-d3ec-4ac5-a488-87106c7d7615")
 		)
 		(fp_line
 			(start 2.81 -1.33)
-			(end 1.56 -1.33)
+			(end 1.16 -1.33)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "3caf475f-20c5-49be-89e3-7740f239d147")
+			(uuid "dfd9388b-09d5-4d03-8df6-b8b5c51b23ef")
 		)
 		(fp_line
-			(start 6.06 -1.33)
+			(start 6.46 -1.33)
 			(end 4.81 -1.33)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "d330ed9d-4cd5-484b-8892-a5543ae68b5d")
-		)
-		(fp_line
-			(start -1.44 -1.39)
-			(end -1.44 19.17)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "2b322d8d-e7a1-4a78-aa5b-589b8c6e62bc")
-		)
-		(fp_line
-			(start 9.06 -1.39)
-			(end -1.44 -1.39)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "e9892b3e-12b3-4998-bb67-605a803d4a00")
+			(uuid "da04a7ca-bfbd-4489-9b45-2d3ac139c137")
 		)
 		(fp_arc
 			(start 4.81 -1.33)
@@ -13443,67 +13403,18 @@
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "fc0c6b0c-f38a-4843-9d2f-e532c2cef10e")
+			(uuid "f031d799-a690-40da-bb17-39646bdfbe51")
 		)
-		(fp_line
-			(start -1.55 19.4)
-			(end 9.15 19.4)
+		(fp_rect
+			(start -1.06 -1.52)
+			(end 8.67 19.3)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
+			(fill no)
 			(layer "F.CrtYd")
-			(uuid "757ab4c8-2fe4-47e4-b17d-ab2f23394207")
-		)
-		(fp_line
-			(start 9.15 19.4)
-			(end 9.15 -1.6)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "a346872b-c6ba-4735-9e4d-76e0787d981e")
-		)
-		(fp_line
-			(start -1.55 -1.6)
-			(end -1.55 19.4)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "f894c7c3-5ae0-4c4f-b8a7-64e3b2ea58b0")
-		)
-		(fp_line
-			(start 9.15 -1.6)
-			(end -1.55 -1.6)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "01283aa8-f06c-4497-b583-3e807910e0f2")
-		)
-		(fp_line
-			(start -1.27 19.11)
-			(end 8.89 19.11)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "ccb5cb5d-4046-4281-9fb5-00b8869b6cc9")
-		)
-		(fp_line
-			(start 8.89 19.11)
-			(end 8.89 -1.33)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "aad8da81-7ad9-42e8-9940-23aee4eb0389")
+			(uuid "fec03974-3c26-44c6-a7cb-9174efcae746")
 		)
 		(fp_line
 			(start 0.635 19.05)
@@ -13513,7 +13424,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "9a9f6421-bde1-4572-aea4-0763906ed296")
+			(uuid "8a152a98-804c-4ec7-b1b3-bfdfe1f49c3b")
 		)
 		(fp_line
 			(start 6.985 19.05)
@@ -13523,7 +13434,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "14768cf7-b64d-402b-b89a-f01f346b9c85")
+			(uuid "31e0b192-aeb1-4b36-a022-d8e45db8062b")
 		)
 		(fp_line
 			(start 0.635 -0.27)
@@ -13533,7 +13444,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "25d8850a-9f7c-4fbe-b210-b1d3e40d2066")
+			(uuid "2b634ee8-d699-495b-85f6-52c5248832ae")
 		)
 		(fp_line
 			(start 1.635 -1.27)
@@ -13543,7 +13454,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "08c4dd53-da90-4c47-bf81-8789aa270f0a")
+			(uuid "acb1cac0-2753-4d0b-ac70-0eba415b84da")
 		)
 		(fp_line
 			(start 6.985 -1.27)
@@ -13553,30 +13464,10 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "b6faf12c-6e4a-4bd4-a0d5-a872d78af3e7")
-		)
-		(fp_line
-			(start -1.27 -1.33)
-			(end -1.27 19.11)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "dcc92872-857b-4094-bc65-84b505f704eb")
-		)
-		(fp_line
-			(start 8.89 -1.33)
-			(end -1.27 -1.33)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "676678fe-6c78-48a4-b279-8e0cf43f4b9e")
+			(uuid "89829c52-1148-4643-b32c-9643a1461b0b")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 3.81 8.89 180)
+			(at 3.81 8.89 0)
 			(layer "F.Fab")
 			(uuid "c5b4a17a-79c6-47e0-8fc8-f1b7912d0b02")
 			(effects
@@ -13586,20 +13477,21 @@
 				)
 			)
 		)
-		(pad "1" thru_hole rect
+		(pad "1" thru_hole roundrect
 			(at 0 0 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
+			(roundrect_rratio 0.15625)
 			(net 11 "+5V")
 			(pinfunction "EN1,2")
 			(pintype "input")
 			(uuid "7703b34a-ca62-4011-8152-3d90a4ab566d")
 		)
-		(pad "2" thru_hole oval
+		(pad "2" thru_hole circle
 			(at 0 2.54 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13608,9 +13500,9 @@
 			(pintype "input")
 			(uuid "3390b8c9-c24b-4aea-9972-dc88dffaf58d")
 		)
-		(pad "3" thru_hole oval
+		(pad "3" thru_hole circle
 			(at 0 5.08 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13619,9 +13511,9 @@
 			(pintype "output")
 			(uuid "b248fa3f-5a13-440f-afdb-a4db21eebe6a")
 		)
-		(pad "4" thru_hole oval
+		(pad "4" thru_hole circle
 			(at 0 7.62 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13630,9 +13522,9 @@
 			(pintype "power_in")
 			(uuid "d65af348-97c1-4567-906b-846aea244051")
 		)
-		(pad "5" thru_hole oval
+		(pad "5" thru_hole circle
 			(at 0 10.16 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13641,9 +13533,9 @@
 			(pintype "power_in")
 			(uuid "75598089-98ce-4b68-911a-5cb0f83656a5")
 		)
-		(pad "6" thru_hole oval
+		(pad "6" thru_hole circle
 			(at 0 12.7 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13652,9 +13544,9 @@
 			(pintype "output")
 			(uuid "807714e8-6d29-4485-8d09-7e53733996a7")
 		)
-		(pad "7" thru_hole oval
+		(pad "7" thru_hole circle
 			(at 0 15.24 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13663,9 +13555,9 @@
 			(pintype "input")
 			(uuid "dee0a80c-88d2-45de-9e17-f06a10cd485b")
 		)
-		(pad "8" thru_hole oval
+		(pad "8" thru_hole circle
 			(at 0 17.78 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13674,9 +13566,9 @@
 			(pintype "power_in")
 			(uuid "bee0f31a-b946-4d88-beb1-a61c110b26a3")
 		)
-		(pad "9" thru_hole oval
+		(pad "9" thru_hole circle
 			(at 7.62 17.78 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13685,9 +13577,9 @@
 			(pintype "input")
 			(uuid "d3430ebc-38d5-44c2-9af6-0d6e03329873")
 		)
-		(pad "10" thru_hole oval
+		(pad "10" thru_hole circle
 			(at 7.62 15.24 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13696,9 +13588,9 @@
 			(pintype "input")
 			(uuid "bdb04a25-4378-4113-a5e4-914658be28a3")
 		)
-		(pad "11" thru_hole oval
+		(pad "11" thru_hole circle
 			(at 7.62 12.7 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13707,9 +13599,9 @@
 			(pintype "output+no_connect")
 			(uuid "71dcd01c-662a-4409-8d64-18766fbfa7d9")
 		)
-		(pad "12" thru_hole oval
+		(pad "12" thru_hole circle
 			(at 7.62 10.16 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13718,9 +13610,9 @@
 			(pintype "power_in")
 			(uuid "280d370d-6335-43fa-bd23-7ccd6cc638b1")
 		)
-		(pad "13" thru_hole oval
+		(pad "13" thru_hole circle
 			(at 7.62 7.62 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13729,9 +13621,9 @@
 			(pintype "power_in")
 			(uuid "4652407c-ded0-447c-b543-8617161d64ab")
 		)
-		(pad "14" thru_hole oval
+		(pad "14" thru_hole circle
 			(at 7.62 5.08 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13740,9 +13632,9 @@
 			(pintype "output+no_connect")
 			(uuid "78edf64f-3749-45d7-9cbf-47dc7754fa82")
 		)
-		(pad "15" thru_hole oval
+		(pad "15" thru_hole circle
 			(at 7.62 2.54 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13751,9 +13643,9 @@
 			(pintype "input")
 			(uuid "ac6fbcf1-b71c-4d9c-94fe-961a718da584")
 		)
-		(pad "16" thru_hole oval
+		(pad "16" thru_hole circle
 			(at 7.62 0 270)
-			(size 2.4 1.6)
+			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
@@ -13763,7 +13655,7 @@
 			(uuid "a5421c2e-e493-4cbe-a0a2-c9da808a02eb")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Package_DIP.3dshapes/DIP-16_W7.62mm_Socket.wrl"
+		(model "${KICAD9_3DMODEL_DIR}/Package_DIP.3dshapes/DIP-16_W7.62mm.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -13816,7 +13708,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -13978,7 +13870,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -14139,7 +14031,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "test point (alternative shape)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -14302,7 +14194,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole without connection"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -14403,7 +14295,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole without connection"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -14504,7 +14396,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole without connection"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -14605,7 +14497,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole without connection"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -15435,7 +15327,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -15733,7 +15625,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -16010,7 +15902,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -16307,7 +16199,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, double row, 02x08, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -16714,7 +16606,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Open Hardware logo, small"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -16722,6 +16614,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Enable" "0"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2044479b-2556-418a-a675-80561e932645")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -17154,7 +17059,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "100V 0.15A standard switching diode, DO-35"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -17162,6 +17067,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ac4257d9-22fe-46b8-98f4-92955af50702")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8cc7cf8d-1979-4b76-b864-06d894fe1852")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
