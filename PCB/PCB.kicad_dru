@@ -1,0 +1,22 @@
+(version 1)
+
+# Allow putting any components underneath the feather and regulator
+(rule feather_reg_overlap_court
+(condition "A.Reference == 'A1' || B.Reference == 'A1' || A.Reference == 'REG1' || B.Reference == 'REG1'")
+(constraint courtyard_clearance)
+(severity ignore))
+
+# Allow experimenting area components overlap each other. Different rules for courtyard and silk,
+# because one needs to match the footprints directly, the other matches a silkscreen member inside
+# the footprint.
+(rule experiment_area_overlap_silk
+(condition "A.memberOfFootprint('J4') || A.memberOfFootprint('J5') || A.memberOfFootprint('J7')")
+(condition "B.memberOfFootprint('J4') || B.memberOfFootprint('J5') || B.memberOfFootprint('J7')")
+(constraint silk_clearance)
+(severity ignore))
+
+(rule experiment_area_overlap_court
+(condition "A.Reference == 'J4' || A.Reference == 'J5' || A.Reference == 'J7'")
+(condition "A.Reference == 'J4' || A.Reference == 'J5' || A.Reference == 'J7'")
+(constraint courtyard_clearance)
+(severity ignore))
