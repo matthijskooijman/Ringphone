@@ -30,6 +30,10 @@ The sources and design files for these parts can be found in the `PCB`,
 `RingPhoneSketch` and `Case` directories respectively. The `Data`
 directory contains a template for the contents of the SD card.
 
+A PDF version of the schematic, along with gerbers, board views and
+other generated files for released board versions can be found under the
+releases on the Github page.
+
 This project uses an unmodified phone, connecting to it using the two
 wires that normally connect to the telephone line (in essence, the
 electronics emulate a telephone line). In theory it should be able to
