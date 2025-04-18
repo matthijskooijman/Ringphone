@@ -58,7 +58,7 @@ const uint16_t RING_TIME = 500;
 const uint16_t RING_PAUSE_TIME = 200;
 const uint16_t RING_IDLE_TIME = 1500;
 // Time to pause between (answered or unanswered) rings
-const uint32_t COOLDOWN_TIME = 1000 * 10;
+const uint32_t COOLDOWN_TIME = 1000 * 300;
 
 enum class HookStatus : bool {
   ON_HOOK,
