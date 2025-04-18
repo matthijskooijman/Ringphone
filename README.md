@@ -103,11 +103,6 @@ On the SD-card there should be a directory called `special` containing a
 single file called `end.raw`. This is a sample (encoded as above), which
 is played once after a normal sample has finished playing.
 
-PCB
----
-https://github.com/KiCad/kicad-symbols/pull/1933
-https://github.com/KiCad/kicad-footprints/pull/1657
-
 Electronics
 -----------
 Electronically a (Dutch) landline roughly works as follows:
