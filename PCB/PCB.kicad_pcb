@@ -17354,7 +17354,7 @@
 			)
 		)
 	)
-	(gr_text "Ringphone controller v1\nhttps://www.stderr.nl"
+	(gr_text "Ringphone rev ${BOARD_REVISION}\nhttps://www.stderr.nl"
 		(at 116.205 186.055 0)
 		(layer "F.SilkS")
 		(uuid "73965dba-0bd4-4040-a91f-2fd1ff2f79ee")

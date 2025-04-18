@@ -1,0 +1,3 @@
+[submodule "PCB-workflows"]
+	path = PCB-workflows
+	url = https://github.com/matthijskooijman/PCB-workflows.git
