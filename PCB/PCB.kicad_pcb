@@ -7,6 +7,11 @@
 		(legacy_teardrops no)
 	)
 	(paper "A4")
+	(title_block
+		(title "Ringphone controller")
+		(company "https://www.stderr.nl")
+		(comment 2 "CERN Open Hardware Licence v2 - Permissive")
+	)
 	(layers
 		(0 "F.Cu" signal)
 		(2 "B.Cu" signal)
@@ -16475,7 +16480,7 @@
 	(footprint "Symbol:OSHW-Logo2_7.3x6mm_SilkScreen"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-00005d0d0093")
-		(at 134.62 185.42)
+		(at 133.9 186.64)
 		(descr "Open Source Hardware Symbol")
 		(tags "Logo Symbol OSHW")
 		(property "Reference" "LOGO1"
@@ -17352,6 +17357,19 @@
 				(size 0.8 0.8)
 				(thickness 0.1)
 			)
+		)
+	)
+	(gr_text "CERN-OHL-P v2+"
+		(at 133.9 183.54 0)
+		(layer "F.SilkS")
+		(uuid "498386ee-8fe7-4c35-a916-9636e7f10b81")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.16)
+				(bold yes)
+			)
+			(justify bottom)
 		)
 	)
 	(gr_text "Ringphone rev ${BOARD_REVISION}\nhttps://www.stderr.nl"

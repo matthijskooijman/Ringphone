@@ -6,10 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Ringphone controller")
-		(date "2019-06-19")
-		(rev "v1")
 		(company "https://www.stderr.nl")
-		(comment 1 "CERN Open Hardware Licence v1.2")
+		(comment 2 "CERN Open Hardware Licence v2 - Permissive")
 	)
 	(lib_symbols
 		(symbol "Amplifier_Operational:LM358"
@@ -12907,7 +12905,7 @@
 	)
 	(symbol
 		(lib_id "Graphic:Logo_Open_Hardware_Small")
-		(at 278.13 173.99 0)
+		(at 278.13 172.72 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
@@ -12915,7 +12913,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d27cbf8")
 		(property "Reference" "LOGO1"
-			(at 278.13 167.005 0)
+			(at 278.13 165.735 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12924,7 +12922,7 @@
 			)
 		)
 		(property "Value" "Logo_Open_Hardware_Small"
-			(at 278.13 179.705 0)
+			(at 278.13 178.435 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12933,7 +12931,7 @@
 			)
 		)
 		(property "Footprint" "Symbol:OSHW-Logo2_7.3x6mm_SilkScreen"
-			(at 278.13 173.99 0)
+			(at 278.13 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12942,7 +12940,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 278.13 173.99 0)
+			(at 278.13 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12951,16 +12949,7 @@
 			)
 		)
 		(property "Description" "Open Hardware logo, small"
-			(at 278.13 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Enable" "0"
-			(at 278.13 173.99 0)
+			(at 278.13 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)

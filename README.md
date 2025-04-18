@@ -364,6 +364,6 @@ The sketch is licensed under the MIT license. The included AudioZero
 library (including my modifications) is dual-licensed under the GNU GPL
 and LGPL licenses. See the individual source files for more details.
 
-The PCB and case designs are distributed under the CERN Open Hardware
-License, version 1.2 or above. See LICENSE.txt in both subdirectories
-for the full text of the license.
+The PCB and case designs are Open Hardware and are licensed under the
+CERN-OHL-P v2 or any later version. See the README.md in both
+subdirectories for details.
