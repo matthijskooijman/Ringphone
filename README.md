@@ -16,8 +16,10 @@ plays random audio samples when picked up. This repository documents the
 design of this phone and contains all the needed source code and design
 files to build it.
 
-TODO: Link to onze kast
-TODO: Fotos
+<img src="./Images/Onze Kast.jpg" alt="Cabinet with phone" height="380px"><img src="./Images/Case.jpg" alt="Casing mounted in the cabinet" height="380px">
+<img src="./Images/Case4.jpg" alt="Case showing PCB" width="800px">
+
+[More images...](./Images)
 
 This project consists of three parts:
  - The electronics to connect to the telephone and detect motion.
